@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#a bash script that displays all active IPv4 IPs on the machine it is executed on
+
+# Display IPv4 addresses that are UP and not the localhost
+ip -4 addr | grep -w inet | grep -v 127.0.0.1 | awk '{print $2}' | cut -d/ -f1

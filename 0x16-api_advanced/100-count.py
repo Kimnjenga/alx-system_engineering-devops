@@ -1,18 +1,19 @@
-t, word_list, hot_list, after)
-
-
-def print_results(word_list, hot_list):
-        '''Prints'''
-            count = {}
-                for word in word_list:
-                            count[word] = 0
-                                for title in hot_list:
-                                            for word in word_list:
-                                                            count[word] = count[word] +\
-                                                                             len(re.findall(r'(?:^| ){}(?:$| )'.format(word), title, re.I))
-
-                                                                count = {k: v for k, v in count.items() if v > 0}
-                                                                    words = sorted(list(count.keys()))
-                                                                        for word in sorted(words,
-                                                                                                                  reverse=True, key=lambda k: count[k]):
-                                                                                    print("{}: {}".format(word, count[word]))~
+posts:
+            title = post['data']['title'].lower()
+                        for word in title.split(' '):
+                                                if word in word_list:
+                                                                            found_list.append(word)
+                                                                                    if aft is not None:
+                                                                                                        count_words(subreddit, word_list, found_list, aft)
+                                                                                    else:
+                                                                                                        result = {}
+                                                                                                                    for word in found_list:
+                                                                                                                                            if word.lower() in result.keys():
+                                                                                                                                                                        result[word.lower()] += 1
+                                                                                                                                            else:
+                                                                                                                                                                        result[word.lower()] = 1
+                                                                                                                                                                                    for key, value in sorted(result.items(), key=lambda item: item[1],
+                                                                                                                                                                                                                                                  reverse=True):
+                                                                                                                                                                                                            print('{}: {}'.format(key, value))
+                                                                                                                                                                                    else:
+                                                                                                                                                                                                    return~
